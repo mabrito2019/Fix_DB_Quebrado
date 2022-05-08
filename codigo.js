@@ -1,12 +1,30 @@
+const dadosQuebrados= require('./broken-database.json'); 
 
+let bancoCerto = dadosQuebrados;
 
-const dados= require('./broken-database.json'); 
-
-const database={};
-
-for(var i=0; i<dados.length; i++){
-
-
-
-console.log(dados[i].id);
+//função de coreção de letras alteradas
+function updateChar(text){
+const mapObj ={ 
+    'æ':'a', 
+    '¢':'c', 
+    'ß':'b', 
+    'ø':'o', 
 }
+    return text.replaceAll(/æ|¢|ß|ø/gi,
+ function(match){   
+     return mapObj[match]
+})
+}
+
+
+for (var i = 0; i < bancoCerto.length; i++){
+bancoCerto[i].name = updateChar(bancoCerto[i].name);
+}
+
+// converte o atribulo Price para tipo number float com duas casas decimais 
+for (var i = 0; i < bancoCerto.length; i++){
+    bancoCerto[i].price = parseFloat(bancoCerto[i].price).toFixed(2);
+    }
+
+
+console.log(bancoCerto);
