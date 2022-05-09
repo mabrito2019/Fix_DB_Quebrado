@@ -53,7 +53,7 @@ Você deverá criar uma função para ler o arquivo broken-database.json e criar
 # Corrigir nomes; ok
 # Corrigir preços; ok
 # Corrigir quantidades; ok
-# Exportar um arquivo JSON com o banco corrigido; 
+# Exportar um arquivo JSON com o banco corrigido; ok
 
 Implementar e entregar as quatro funções em um mesmo arquivo ‘resolucao.js’ para correção. Enviar também para correção um arquivo no formato JSON com o banco de dados corrigido, ou seja, após passar pelas três funções de correção. 
  Validação do banco de dados corrigido 

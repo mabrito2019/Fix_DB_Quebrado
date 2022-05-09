@@ -2,6 +2,8 @@
 
 const dadosQuebrados= require('./broken-database.json'); 
 
+const fs = require('fs');
+
 let bancoCerto = dadosQuebrados;
 
 //função de coreção de letras alteradas
@@ -17,7 +19,6 @@ const mapObj ={
      return mapObj[match]
 })
 }
-
 
 //chamada da função de alteração de letras alteradas
 for (var i = 0; i < bancoCerto.length; i++){
@@ -50,5 +51,13 @@ if (!bancoCerto[i].hasOwnProperty('quantity')){
     bancoCerto[i].category= tempCategory;
 }
 }
-JSON.stringify(bancoCerto); 
-console.log(bancoCerto);
+const data = JSON.stringify(bancoCerto);
+fs.writeFile('banco-corrigido.json', data, (err) => {
+    if (err) {
+        throw err;
+    }
+    console.log("JSON data is saved.");
+});
+
+//testes sugeridos
+console.log(bancoCerto.sort(bancoCerto.name, bancoCerto.name));
